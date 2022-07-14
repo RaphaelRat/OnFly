@@ -13,15 +13,21 @@ class BottomNavigationPage extends GetView<BottomNavigationController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: controller.pageController,
-        scrollDirection: Axis.horizontal,
-        children: const [
-          HomePage(),
-          RadarPage(),
-          ProfilePage(),
-        ],
-        onPageChanged: controller.selectedIndex,
+      body: NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (overscroll) {
+          overscroll.disallowIndicator();
+          return false;
+        },
+        child: PageView(
+          controller: controller.pageController,
+          scrollDirection: Axis.horizontal,
+          children: const [
+            HomePage(),
+            RadarPage(),
+            ProfilePage(),
+          ],
+          onPageChanged: controller.selectedIndex,
+        ),
       ),
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
