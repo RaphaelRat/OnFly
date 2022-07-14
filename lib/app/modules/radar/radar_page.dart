@@ -15,7 +15,7 @@ class RadarPage extends GetView<RadarController> {
       child: Center(
         child: Text(
           controller.text,
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white70),
         ),
       ),
     );
