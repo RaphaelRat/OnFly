@@ -29,6 +29,14 @@ class LoginController extends GetxController {
       return;
     }
 
+    final authController = AuthController.instance;
+    if (authController.isUserAlreadySet.value) {
+      authController.user.value = user.first;
+    } else {
+      authController.user = user.first.obs;
+      authController.isUserAlreadySet.value = true;
+    }
+
     Get.offAndToNamed(BottomNavigationPage.route);
   }
 

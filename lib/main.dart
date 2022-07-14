@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import './app/core/globals/global_bindings.dart';
 import './app/modules/login/login_page.dart';
 import './app/routes/pages.dart';
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       ),
       getPages: getAppPages(),
       initialRoute: LoginPage.route,
+      initialBinding: GlobalBindings(),
       debugShowCheckedModeBanner: false,
     );
   }
