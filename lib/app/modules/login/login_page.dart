@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:onfly/app/core/utils/snackbar.dart';
 
+import '../../core/theme/app_colors.dart';
 import 'login_controller.dart';
 
 class LoginPage extends GetView<LoginController> {
@@ -10,13 +12,132 @@ class LoginPage extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    final textTheme = Theme.of(context).textTheme;
+    final loginFormKey = GlobalKey<FormState>();
+    return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text("LOGIN"),
+        body: Container(
+          color: AppColors.lightBlue600,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Expanded(
+                flex: 2,
+                // child: Center(child: Text('On Fly', style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w500))),
+                child: Image(image: AssetImage('assets/images/logo.png')),
+              ),
+              Expanded(
+                flex: 3,
+                child: Container(
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                    color: AppColors.whiteSmoke,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 16, right: 16),
+                    child: SingleChildScrollView(
+                      child: Form(
+                        key: loginFormKey,
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 24),
+                            Text('Faça seu login', style: textTheme.headline6?.copyWith(fontWeight: FontWeight.w500)),
+                            const SizedBox(height: 36),
+                            TextFormField(
+                              // decoration: getTextFieldDecoration(context: context, enabled: true, label: 'Email', isInvalid: false),
+                              validator: (email) => email == null || email.isEmpty ? 'Campo obrigatório' : null,
+                              // initialValue: kReleaseMode ? null : users.elementAt(3).email,
+                              onSaved: controller.onEmailFormChanged,
+                            ),
+                            const SizedBox(height: 16),
+                            Obx(
+                              () => TextFormField(
+                                obscureText: controller.obscurePassword.value,
+                                // decoration: getTextFieldDecoration(context: context, enabled: true, label: 'Senha', isInvalid: false).copyWith(
+                                decoration: InputDecoration(
+                                  suffixIcon: IconButton(
+                                    icon: Icon(controller.obscurePassword.value ? Icons.visibility : Icons.visibility_off),
+                                    onPressed: () => controller.obscurePassword.value = !controller.obscurePassword.value,
+                                  ),
+                                ),
+                                validator: (password) => password == null || password.isEmpty ? 'Campo obrigatório' : null,
+                                // initialValue: kReleaseMode ? null : users.elementAt(3).password,
+                                onSaved: controller.onPasswordFormChanged,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Obx(
+                              () => controller.incorrectCredentials.value
+                                  ? Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        'Usuário ou senha incorretos',
+                                        style: textTheme.caption?.copyWith(color: AppColors.red900),
+                                      ),
+                                    )
+                                  : const SizedBox(),
+                            ),
+                            const SizedBox(height: 24),
+                            SizedBox(
+                              height: 48,
+                              child: Obx(
+                                () => AnimatedSwitcher(
+                                  duration: const Duration(milliseconds: 200),
+                                  child: controller.isLoading.value
+                                      ? const Center(child: CircularProgressIndicator())
+                                      : SizedBox(
+                                          width: double.infinity,
+                                          child: ElevatedButton(
+                                            child: const Text('Conectar'),
+                                            onPressed: () => onConnectPressed(loginFormKey),
+                                          ),
+                                        ),
+                                ),
+                              ),
+                            ),
+                            TextButton(
+                              child: Text('Esqueceu sua senha?', style: textTheme.caption?.copyWith(color: AppColors.lightBlue600)),
+                              onPressed: () => showGetSnackbar(text: 'Em desenvolvimento'),
+                            ),
+                            const SizedBox(height: 24),
+                            Text.rich(
+                              TextSpan(
+                                style: textTheme.caption,
+                                children: [
+                                  const TextSpan(text: 'Não é cadastrado?'),
+                                  const WidgetSpan(child: SizedBox(width: 4)),
+                                  WidgetSpan(
+                                    child: InkWell(
+                                      child: const Text('Crie uma conta', style: TextStyle(color: AppColors.lightBlue600)),
+                                      onTap: () => showGetSnackbar(text: 'Em desenvolvimento'),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(height: 56),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
-        body: Center(child: Text(controller.controllerText)),
       ),
     );
+  }
+
+  void onConnectPressed(GlobalKey<FormState> loginFormKey) {
+    controller.incorrectCredentials.value = false;
+    loginFormKey.currentState?.save();
+
+    final isValid = loginFormKey.currentState?.validate();
+    if (isValid != null && isValid) {
+      controller.executeLogin();
+    }
   }
 }

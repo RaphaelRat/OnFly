@@ -1,4 +1,4 @@
-import 'package:onfly/data/model/user/user.dart';
+import './user.dart';
 
 final userRaphael = User(
   email: 'raphael@gmail.com',
@@ -15,3 +15,9 @@ final userMatheus = User(
   senha: '123123',
   nome: 'Matheus',
 );
+
+final users = [
+  userRaphael,
+  userNicolas,
+  userMatheus,
+];
