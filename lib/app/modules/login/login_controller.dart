@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
 
-import '../../core/utils/snackbar.dart';
+import '../../core/globals/auth_controller.dart';
 import '../../data/model/login_form/login_form.dart';
 import '../../data/model/user/user_mock.dart';
+
+import '../bottom_navigation/bottom_navigation_page.dart';
 
 class LoginController extends GetxController {
   final RxBool isLoading = false.obs;
@@ -19,7 +21,7 @@ class LoginController extends GetxController {
 
     final user = users.where((user) => user.email == loginForm.value.email && user.senha == loginForm.value.senha).toList();
 
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
     isLoading.value = false;
 
     if (user.isEmpty) {
@@ -27,7 +29,7 @@ class LoginController extends GetxController {
       return;
     }
 
-    showGetSnackbar(text: 'Voce logou!', duration: 2);
+    Get.offAndToNamed(BottomNavigationPage.route);
   }
 
   void onEmailFormChanged(String? novoEmail) {
