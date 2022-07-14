@@ -1,8 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:onfly/app/core/utils/snackbar.dart';
+import 'package:onfly/app/data/model/user/user_mock.dart';
 
+import '../../core/utils/snackbar.dart';
+import '../../core/theme/form_field_input_decoration.dart';
 import '../../core/theme/app_colors.dart';
 import 'login_controller.dart';
 
@@ -23,7 +26,6 @@ class LoginPage extends GetView<LoginController> {
             children: [
               const Expanded(
                 flex: 2,
-                // child: Center(child: Text('On Fly', style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w500))),
                 child: Image(image: AssetImage('assets/images/logo.png')),
               ),
               Expanded(
@@ -45,24 +47,23 @@ class LoginPage extends GetView<LoginController> {
                             Text('Faça seu login', style: textTheme.headline6?.copyWith(fontWeight: FontWeight.w500)),
                             const SizedBox(height: 36),
                             TextFormField(
-                              // decoration: getTextFieldDecoration(context: context, enabled: true, label: 'Email', isInvalid: false),
+                              decoration: getTextFieldDecoration(context: context, enabled: true, label: 'Email', isInvalid: false),
                               validator: (email) => email == null || email.isEmpty ? 'Campo obrigatório' : null,
-                              // initialValue: kReleaseMode ? null : users.elementAt(3).email,
+                              initialValue: kReleaseMode ? null : users.elementAt(0).email,
                               onSaved: controller.onEmailFormChanged,
                             ),
                             const SizedBox(height: 16),
                             Obx(
                               () => TextFormField(
                                 obscureText: controller.obscurePassword.value,
-                                // decoration: getTextFieldDecoration(context: context, enabled: true, label: 'Senha', isInvalid: false).copyWith(
-                                decoration: InputDecoration(
+                                decoration: getTextFieldDecoration(context: context, enabled: true, label: 'Senha', isInvalid: false).copyWith(
                                   suffixIcon: IconButton(
                                     icon: Icon(controller.obscurePassword.value ? Icons.visibility : Icons.visibility_off),
                                     onPressed: () => controller.obscurePassword.value = !controller.obscurePassword.value,
                                   ),
                                 ),
                                 validator: (password) => password == null || password.isEmpty ? 'Campo obrigatório' : null,
-                                // initialValue: kReleaseMode ? null : users.elementAt(3).password,
+                                initialValue: kReleaseMode ? null : users.elementAt(0).senha,
                                 onSaved: controller.onPasswordFormChanged,
                               ),
                             ),
