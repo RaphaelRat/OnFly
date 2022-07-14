@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:onfly/app/core/theme/app_colors.dart';
 import 'package:onfly/app/modules/bottom_navigation/bottom_navigation_controller.dart';
+import 'package:onfly/app/modules/home/home_page.dart';
+import 'package:onfly/app/modules/profile/profile_page.dart';
+import 'package:onfly/app/modules/radar/radar_page.dart';
 
 class BottomNavigationPage extends GetView<BottomNavigationController> {
   static String route = '/';
@@ -14,9 +17,9 @@ class BottomNavigationPage extends GetView<BottomNavigationController> {
         controller: controller.pageController,
         scrollDirection: Axis.horizontal,
         children: const [
-          Center(child: Text('1')),
-          Center(child: Text('2')),
-          Center(child: Text('3')),
+          HomePage(),
+          RadarPage(),
+          ProfilePage(),
         ],
         onPageChanged: controller.selectedIndex,
       ),
