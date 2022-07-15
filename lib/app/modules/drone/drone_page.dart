@@ -74,7 +74,7 @@ class DronePage extends GetView<DroneController> {
                             const SizedBox(height: 8),
                             TextFormField(
                               decoration: getTextFieldDecoration(context: context, enabled: true, label: 'Partida', isInvalid: false),
-                              validator: (email) => email == null || email.isEmpty ? 'Campo obrigatório' : null,
+                              validator: (partida) => partida == null || partida.isEmpty ? 'Campo obrigatório' : null,
                               onSaved: controller.onPartidaFormChanged,
                               autovalidateMode: AutovalidateMode.onUserInteraction,
                             ),
@@ -83,7 +83,7 @@ class DronePage extends GetView<DroneController> {
                             const SizedBox(height: 8),
                             TextFormField(
                               decoration: getTextFieldDecoration(context: context, enabled: true, label: 'Chegada', isInvalid: false),
-                              validator: (email) => email == null || email.isEmpty ? 'Campo obrigatório' : null,
+                              validator: (chegada) => chegada == null || chegada.isEmpty ? 'Campo obrigatório' : null,
                               onSaved: controller.onChegadaFormChanged,
                               autovalidateMode: AutovalidateMode.onUserInteraction,
                             ),
@@ -92,10 +92,19 @@ class DronePage extends GetView<DroneController> {
                             const SizedBox(height: 8),
                             TextFormField(
                               decoration: getTextFieldDecoration(context: context, enabled: true, label: 'Conteúdo', isInvalid: false),
-                              validator: (email) => email == null || email.isEmpty ? 'Campo obrigatório' : null,
+                              validator: (conteudo) => conteudo == null || conteudo.isEmpty ? 'Campo obrigatório' : null,
                               onSaved: controller.onChegadaFormChanged,
                               autovalidateMode: AutovalidateMode.onUserInteraction,
                             ),
+                            const SizedBox(height: 24),
+                            Text('Peso do conteúdo', style: textTheme.subtitle1?.copyWith(fontWeight: FontWeight.w400)),
+                            const SizedBox(height: 8),
+                            TextFormField(
+                                decoration: getTextFieldDecoration(context: context, enabled: true, label: 'Peso', isInvalid: false),
+                                validator: pesoValidator,
+                                onSaved: controller.onPesoFormChanged,
+                                autovalidateMode: AutovalidateMode.onUserInteraction,
+                                keyboardType: TextInputType.number),
                             const SizedBox(height: 24),
                             SizedBox(
                               height: 48,
@@ -137,5 +146,17 @@ class DronePage extends GetView<DroneController> {
     if (isValid != null && isValid) {
       controller.enviar();
     }
+  }
+
+  String? pesoValidator(String? peso) {
+    if (peso != null && peso.isNotEmpty) {
+      try {
+        if (double.parse(peso) > controller.drone.cargaMaxima) return 'Peso excedido';
+      } catch (e) {
+        return 'Dado inválido (use ponto ao invés de vírgula)';
+      }
+    }
+
+    return peso == null || peso.isEmpty ? 'Campo obrigatório' : null;
   }
 }

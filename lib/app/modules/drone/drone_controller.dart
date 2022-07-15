@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:onfly/app/core/utils/snackbar.dart';
 
 import '../../data/model/drone/drone.dart';
 import '../../data/model/entrega_form/entrega_form.dart';
@@ -19,6 +20,7 @@ class DroneController extends GetxController {
     isLoading.value = true;
     await Future.delayed(const Duration(seconds: 1));
     isLoading.value = false;
+    showGetSnackbar(text: 'Enviando...');
   }
 
   void onPartidaFormChanged(String? novaPartida) {
@@ -31,5 +33,9 @@ class DroneController extends GetxController {
 
   void onConteudoFormChanged(String? novoConteudo) {
     entregaForm.value = entregaForm.value.copyWith(conteudo: novoConteudo);
+  }
+
+  void onPesoFormChanged(String? novoPeso) {
+    entregaForm.value = entregaForm.value.copyWith(peso: novoPeso);
   }
 }
