@@ -44,7 +44,7 @@ class ProfilePage extends GetView<ProfileController> {
                   borderRadius: BorderRadius.all(Radius.circular(16)),
                   color: AppColors.indigoA700,
                 ),
-                child: const Text('5 drones', style: TextStyle(color: AppColors.whiteSmoke)),
+                child: Text('${controller.user.value.quantidadeDrone} drones', style: const TextStyle(color: AppColors.whiteSmoke)),
               ),
               Container(
                 width: double.infinity,
