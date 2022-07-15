@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:onfly/app/core/theme/app_colors.dart';
-import 'package:onfly/app/core/theme/form_field_input_decoration.dart';
-import 'package:onfly/app/core/utils/snackbar.dart';
-import 'package:onfly/app/modules/home/local_widgets/drone_card.dart';
+
+import '../../core/theme/app_colors.dart';
+import '../../core/theme/form_field_input_decoration.dart';
+import '../../core/utils/snackbar.dart';
+import '../home/local_widgets/drone_card.dart';
 
 import './drone_controller.dart';
 
@@ -74,6 +75,8 @@ class DronePage extends GetView<DroneController> {
                             TextFormField(
                               decoration: getTextFieldDecoration(context: context, enabled: true, label: 'Partida', isInvalid: false),
                               validator: (email) => email == null || email.isEmpty ? 'Campo obrigatório' : null,
+                              onSaved: controller.onPartidaFormChanged,
+                              autovalidateMode: AutovalidateMode.onUserInteraction,
                             ),
                             const SizedBox(height: 24),
                             Text('Para onde a entrega está indo', style: textTheme.subtitle1?.copyWith(fontWeight: FontWeight.w400)),
@@ -81,6 +84,8 @@ class DronePage extends GetView<DroneController> {
                             TextFormField(
                               decoration: getTextFieldDecoration(context: context, enabled: true, label: 'Chegada', isInvalid: false),
                               validator: (email) => email == null || email.isEmpty ? 'Campo obrigatório' : null,
+                              onSaved: controller.onChegadaFormChanged,
+                              autovalidateMode: AutovalidateMode.onUserInteraction,
                             ),
                             const SizedBox(height: 24),
                             Text('Conteúdo da entrega', style: textTheme.subtitle1?.copyWith(fontWeight: FontWeight.w400)),
@@ -88,6 +93,8 @@ class DronePage extends GetView<DroneController> {
                             TextFormField(
                               decoration: getTextFieldDecoration(context: context, enabled: true, label: 'Conteúdo', isInvalid: false),
                               validator: (email) => email == null || email.isEmpty ? 'Campo obrigatório' : null,
+                              onSaved: controller.onChegadaFormChanged,
+                              autovalidateMode: AutovalidateMode.onUserInteraction,
                             ),
                             const SizedBox(height: 24),
                             SizedBox(
@@ -102,9 +109,7 @@ class DronePage extends GetView<DroneController> {
                                           child: ElevatedButton(
                                             style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(AppColors.indigoA700)),
                                             child: const Text('Enviar'),
-                                            onPressed: () {
-                                              controller.enviar();
-                                            },
+                                            onPressed: () => onEnviarPressed(droneFormKey),
                                           ),
                                         ),
                                 ),
@@ -123,5 +128,14 @@ class DronePage extends GetView<DroneController> {
         ),
       ),
     );
+  }
+
+  void onEnviarPressed(GlobalKey<FormState> droneFormKey) {
+    droneFormKey.currentState?.save();
+
+    final isValid = droneFormKey.currentState?.validate();
+    if (isValid != null && isValid) {
+      controller.enviar();
+    }
   }
 }
