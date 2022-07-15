@@ -13,7 +13,7 @@ Widget droneCard(Drone drone, {bool isDronePage = false}) {
     child: Hero(
       tag: 'drone${drones.indexOf(drone)}',
       child: GestureDetector(
-        onTap: () => Get.toNamed(DronePage.route, arguments: drone),
+        onTap: () => isDronePage ? imageDialog(drone) : Get.toNamed(DronePage.route, arguments: drone),
         child: Stack(
           fit: StackFit.loose,
           children: <Widget>[
@@ -23,9 +23,9 @@ Widget droneCard(Drone drone, {bool isDronePage = false}) {
               children: <Widget>[
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 16.0, left: 56),
+                    padding: EdgeInsets.only(right: 16.0, left: 56, top: isDronePage ? 20 : 0),
                     child: Container(
-                      height: 140.0,
+                      height: isDronePage ? 80 : 140,
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
@@ -50,10 +50,10 @@ Widget droneCard(Drone drone, {bool isDronePage = false}) {
                                     text: drone.modelo,
                                   ),
                                 ),
-                          const SizedBox(height: 8),
+                          SizedBox(height: isDronePage ? 0 : 8),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsets.only(left: isDronePage ? 60 : 46),
+                              padding: EdgeInsets.only(left: isDronePage ? 90 : 46),
                               child: Row(
                                 children: [
                                   Expanded(
@@ -113,7 +113,7 @@ Widget droneCard(Drone drone, {bool isDronePage = false}) {
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(top: isDronePage ? 20 : 30.0, right: 0.0),
+              padding: EdgeInsets.only(top: isDronePage ? 0 : 30.0, right: 0.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -121,11 +121,12 @@ Widget droneCard(Drone drone, {bool isDronePage = false}) {
                   Padding(
                     padding: const EdgeInsets.only(right: 16.0, left: 16),
                     child: Container(
-                      width: isDronePage ? 100 : 80,
-                      height: isDronePage ? 100 : 80,
+                      width: isDronePage ? 120 : 80,
+                      height: isDronePage ? 120 : 80,
                       decoration: BoxDecoration(
                         image: DecorationImage(fit: BoxFit.cover, image: AssetImage(drone.image)),
                         borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+                        border: Border.all(color: AppColors.whiteSmoke),
                       ),
                     ),
                   ),
@@ -136,10 +137,10 @@ Widget droneCard(Drone drone, {bool isDronePage = false}) {
                 ? Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.end,
-                    children: const [
+                    children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 8, right: 24),
-                        child: Icon(
+                        padding: EdgeInsets.only(top: isDronePage ? 28 : 8, right: 24),
+                        child: const Icon(
                           Icons.radar,
                           color: AppColors.indigoA700,
                         ),
@@ -152,4 +153,14 @@ Widget droneCard(Drone drone, {bool isDronePage = false}) {
       ),
     ),
   );
+}
+
+void imageDialog(Drone drone) {
+  Get.defaultDialog(
+      content: Image.asset(drone.image),
+      title: '',
+      cancel: Padding(
+        padding: const EdgeInsets.only(top: 8.0, bottom: 12),
+        child: TextButton(child: const Text('Fechar'), onPressed: Get.back),
+      ));
 }
