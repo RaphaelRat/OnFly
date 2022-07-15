@@ -28,7 +28,7 @@ List<GetPage> getAppPages() {
       ],
     ),
     GetPage(
-      name: DronePage.route,
+      name: '${DronePage.route}/:id',
       page: () => const DronePage(),
       binding: BindingsBuilder(() => Get.lazyPut<DroneController>(() => DroneController())),
     ),
