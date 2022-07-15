@@ -5,7 +5,7 @@ import '../../../data/model/drone/drone.dart';
 
 Widget droneCard(Drone drone) {
   return Padding(
-    padding: const EdgeInsets.only(top: 16),
+    padding: const EdgeInsets.symmetric(vertical: 8),
     child: Stack(
       fit: StackFit.loose,
       children: <Widget>[
