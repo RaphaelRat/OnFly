@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/theme/app_colors.dart';
+import '../../core/utils/snackbar.dart';
 import '../../data/model/drone/drone_mock.dart';
 import './local_widgets/drone_card.dart';
 import './home_controller.dart';
@@ -35,19 +36,22 @@ class HomePage extends GetView<HomeController> {
                               : const AssetImage('assets/images/nicolas.jpg')),
                     ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                        color: AppColors.indigoA700,
-                        border: Border.all(color: AppColors.indigoA700),
-                        borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(20), topLeft: Radius.circular(20))),
-                    child: Row(
-                      children: const [
-                        Icon(Icons.notifications_none_rounded, color: AppColors.whiteSmoke),
-                        SizedBox(width: 8),
-                        Icon(Icons.settings_outlined, color: AppColors.whiteSmoke),
-                        SizedBox(width: 8),
-                      ],
+                  GestureDetector(
+                    onTap: () => showGetSnackbar(text: 'Em desenvolvimento'),
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                          color: AppColors.indigoA700,
+                          border: Border.all(color: AppColors.indigoA700),
+                          borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(20), topLeft: Radius.circular(20))),
+                      child: Row(
+                        children: const [
+                          Icon(Icons.notifications_none_rounded, color: AppColors.whiteSmoke),
+                          SizedBox(width: 8),
+                          Icon(Icons.settings_outlined, color: AppColors.whiteSmoke),
+                          SizedBox(width: 8),
+                        ],
+                      ),
                     ),
                   ),
                 ],
