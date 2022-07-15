@@ -4,6 +4,7 @@ abstract class AppColors {
   AppColors._();
 
   static const black12 = Colors.black12;
+  static const almostWhite = Color.fromRGBO(249, 249, 249, 1);
 
   static const grey100 = Color(0xFFF5F5F5);
   static const grey200 = Color(0xFFEEEEEE);

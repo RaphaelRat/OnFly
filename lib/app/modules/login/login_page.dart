@@ -20,7 +20,7 @@ class LoginPage extends GetView<LoginController> {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          color: AppColors.lightBlue600,
+          color: AppColors.indigoA700,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -90,6 +90,7 @@ class LoginPage extends GetView<LoginController> {
                                       : SizedBox(
                                           width: double.infinity,
                                           child: ElevatedButton(
+                                            style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(AppColors.indigoA700)),
                                             child: const Text('Conectar'),
                                             onPressed: () => onConnectPressed(loginFormKey),
                                           ),
@@ -98,7 +99,7 @@ class LoginPage extends GetView<LoginController> {
                               ),
                             ),
                             TextButton(
-                              child: Text('Esqueceu sua senha?', style: textTheme.caption?.copyWith(color: AppColors.lightBlue600)),
+                              child: Text('Esqueceu sua senha?', style: textTheme.caption?.copyWith(color: AppColors.indigoA700)),
                               onPressed: () => showGetSnackbar(text: 'Em desenvolvimento'),
                             ),
                             const SizedBox(height: 24),
@@ -110,7 +111,7 @@ class LoginPage extends GetView<LoginController> {
                                   const WidgetSpan(child: SizedBox(width: 4)),
                                   WidgetSpan(
                                     child: InkWell(
-                                      child: const Text('Crie uma conta', style: TextStyle(color: AppColors.lightBlue600)),
+                                      child: const Text('Crie uma conta', style: TextStyle(color: AppColors.indigoA700)),
                                       onTap: () => showGetSnackbar(text: 'Em desenvolvimento'),
                                     ),
                                   ),

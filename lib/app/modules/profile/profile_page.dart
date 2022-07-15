@@ -13,6 +13,7 @@ class ProfilePage extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: AppColors.almostWhite,
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -20,7 +21,7 @@ class ProfilePage extends GetView<ProfileController> {
               const SizedBox(height: 16),
               CircleAvatar(
                 radius: 66,
-                backgroundColor: AppColors.lightBlue600,
+                backgroundColor: AppColors.indigoA700,
                 child: CircleAvatar(
                   radius: 62,
                   backgroundColor: AppColors.whiteSmoke,
@@ -41,7 +42,7 @@ class ProfilePage extends GetView<ProfileController> {
                 padding: const EdgeInsets.all(8),
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(16)),
-                  color: AppColors.lightBlue600,
+                  color: AppColors.indigoA700,
                 ),
                 child: const Text('5 drones', style: TextStyle(color: AppColors.whiteSmoke)),
               ),
@@ -88,7 +89,7 @@ class ProfilePage extends GetView<ProfileController> {
             onPressed: Get.back,
           ),
           TextButton(
-            child: const Text('Sair', style: TextStyle(fontSize: 16, color: AppColors.lightBlue600)),
+            child: const Text('Sair', style: TextStyle(fontSize: 16, color: AppColors.indigoA700)),
             onPressed: controller.logout,
           ),
         ]);

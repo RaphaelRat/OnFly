@@ -7,7 +7,7 @@ Widget menuIcon({required String texto, required IconData icone, required void F
     onTap: funcao,
     child: Row(
       children: [
-        CircleAvatar(backgroundColor: AppColors.lightBlue600, child: Icon(icone, size: 24, color: AppColors.whiteSmoke)),
+        CircleAvatar(backgroundColor: AppColors.indigoA700, child: Icon(icone, size: 24, color: AppColors.whiteSmoke)),
         const SizedBox(width: 24),
         Text(texto, style: const TextStyle(fontSize: 24)),
       ],

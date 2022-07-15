@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:onfly/app/modules/home/local_widgets/drone_card.dart';
 
 import '../../core/theme/app_colors.dart';
 import '../../data/model/drone/drone_mock.dart';
+import './local_widgets/drone_card.dart';
 import './home_controller.dart';
 
 class HomePage extends GetView<HomeController> {
@@ -13,7 +13,7 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromRGBO(249, 249, 249, 1),
+        backgroundColor: AppColors.almostWhite,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
