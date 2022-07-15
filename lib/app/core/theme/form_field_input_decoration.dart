@@ -6,6 +6,7 @@ InputDecoration getFormFieldDecoration(BuildContext context, bool enabled, Strin
   final theme = Theme.of(context);
   final textTheme = theme.textTheme;
   return InputDecoration(
+    floatingLabelStyle: const TextStyle(color: AppColors.indigoA700),
     contentPadding: const EdgeInsets.fromLTRB(16, 18, 24, 14),
     enabled: enabled,
     focusedBorder: OutlineInputBorder(
@@ -41,6 +42,7 @@ InputDecoration getTextFieldDecoration({
   required bool enabled,
   required String label,
   required bool isInvalid,
+  FocusNode? focus,
 }) {
   return getFormFieldDecoration(context, enabled, label).copyWith(
     suffixIcon: isInvalid
