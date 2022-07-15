@@ -1,11 +1,14 @@
 import 'package:get/get.dart';
-import 'package:onfly/app/modules/bottom_navigation/bottom_navigation_controller.dart';
-import 'package:onfly/app/modules/bottom_navigation/bottom_navigation_page.dart';
-import 'package:onfly/app/modules/home/home_controller.dart';
-import 'package:onfly/app/modules/login/login_controller.dart';
-import 'package:onfly/app/modules/login/login_page.dart';
-import 'package:onfly/app/modules/profile/profile_controller.dart';
-import 'package:onfly/app/modules/radar/radar_controller.dart';
+
+import '../modules/bottom_navigation/bottom_navigation_controller.dart';
+import '../modules/bottom_navigation/bottom_navigation_page.dart';
+import '../modules/drone/drone_controller.dart';
+import '../modules/drone/drone_page.dart';
+import '../modules/home/home_controller.dart';
+import '../modules/login/login_controller.dart';
+import '../modules/login/login_page.dart';
+import '../modules/profile/profile_controller.dart';
+import '../modules/radar/radar_controller.dart';
 
 List<GetPage> getAppPages() {
   return [
@@ -23,6 +26,11 @@ List<GetPage> getAppPages() {
         BindingsBuilder(() => Get.lazyPut<RadarController>(() => RadarController())),
         BindingsBuilder(() => Get.lazyPut<ProfileController>(() => ProfileController())),
       ],
+    ),
+    GetPage(
+      name: DronePage.route,
+      page: () => const DronePage(),
+      binding: BindingsBuilder(() => Get.lazyPut<DroneController>(() => DroneController())),
     ),
   ];
 }
