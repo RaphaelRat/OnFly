@@ -33,14 +33,12 @@ class HomePage extends GetView<HomeController> {
                         radius: 24,
                         backgroundColor: AppColors.indigoA700,
                         child: CircleAvatar(
-                          radius: 21,
-                          backgroundColor: AppColors.whiteSmoke,
-                          child: CircleAvatar(
+                            radius: 21,
+                            backgroundColor: AppColors.whiteSmoke,
+                            child: CircleAvatar(
                               radius: 20,
-                              backgroundImage: controller.user.value.nome == 'Raphael Abreu'
-                                  ? const AssetImage('assets/images/raphael.jpg')
-                                  : const AssetImage('assets/images/nicolas.jpg')),
-                        ),
+                              backgroundImage: AssetImage(controller.user.value.foto),
+                            )),
                       ),
                     ),
                   ),

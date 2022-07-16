@@ -53,7 +53,7 @@ Widget formDrone({required BuildContext context, required GlobalKey<FormState> d
             initialValue: kDebugMode ? 'Conteúdo' : null,
           ),
           const SizedBox(height: 24),
-          Text('Peso do conteúdo', style: textTheme.subtitle1?.copyWith(fontWeight: FontWeight.w400)),
+          Text('Peso do conteúdo (kg)', style: textTheme.subtitle1?.copyWith(fontWeight: FontWeight.w400)),
           const SizedBox(height: 8),
           TextFormField(
               decoration: getTextFieldDecoration(context: context, enabled: true, label: 'Peso', isInvalid: false),

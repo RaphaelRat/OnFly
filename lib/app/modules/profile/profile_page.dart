@@ -33,11 +33,7 @@ class ProfilePage extends GetView<ProfileController> {
                 child: CircleAvatar(
                   radius: 62,
                   backgroundColor: AppColors.whiteSmoke,
-                  child: CircleAvatar(
-                      radius: 60,
-                      backgroundImage: controller.user.value.nome == 'Raphael Abreu'
-                          ? const AssetImage('assets/images/raphael.jpg')
-                          : const AssetImage('assets/images/nicolas.jpg')),
+                  child: CircleAvatar(radius: 60, backgroundImage: AssetImage(controller.user.value.foto)),
                 ),
               ),
             ),
