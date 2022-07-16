@@ -49,7 +49,7 @@ class MapPage extends GetView<MapController> {
                           style: const TextStyle(color: AppColors.blackSurface, fontSize: 16),
                           text: 'Velocidade do drone: ',
                           children: <TextSpan>[
-                        TextSpan(text: ' ${controller.drone.velMaxima} km/h', style: const TextStyle(fontWeight: FontWeight.w700))
+                        TextSpan(text: ' ${controller.drone.value.velMaxima} km/h', style: const TextStyle(fontWeight: FontWeight.w700))
                       ])),
                   const SizedBox(height: 16),
                   SizedBox(

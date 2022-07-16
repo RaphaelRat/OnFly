@@ -21,7 +21,7 @@ class DroneController extends GetxController {
     isLoading.value = false;
     drone.value.estaNoRadar = true;
     drone.refresh();
-    Get.toNamed(MapPage.route, arguments: drone.value);
+    Get.toNamed(MapPage.route, arguments: drone);
   }
 
   void onPartidaFormChanged(String? novaPartida) {
