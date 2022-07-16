@@ -19,11 +19,14 @@ class MapPage extends GetView<MapController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(fit: BoxFit.cover, image: AssetImage('assets/images/map.jpg')),
-                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
-                  color: AppColors.whiteSmoke,
+              child: Hero(
+                tag: 'DroneImage',
+                child: Container(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(fit: BoxFit.cover, image: AssetImage('assets/images/map.jpg')),
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
+                    color: AppColors.whiteSmoke,
+                  ),
                 ),
               ),
             ),

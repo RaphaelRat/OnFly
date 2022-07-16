@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:onfly/app/core/utils/snackbar.dart';
 
+import '../../core/utils/snackbar.dart';
 import '../../data/model/drone/drone.dart';
 
 class MapController extends GetxController {
@@ -20,6 +20,6 @@ class MapController extends GetxController {
     drone.refresh();
     isLoading.value = false;
     Get.back();
-    showGetSnackbar(text: 'Drone retornado!', duration: 2);
+    showGetSnackbar(text: 'Drone retornado', duration: 2);
   }
 }
