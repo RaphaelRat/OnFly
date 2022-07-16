@@ -24,7 +24,7 @@ class DronePage extends GetView<DroneController> {
         backgroundColor: AppColors.indigoA700,
         appBar: AppBar(
           title: Text(
-            controller.drone.modelo,
+            controller.drone.value.modelo,
             textAlign: TextAlign.center,
             style: const TextStyle(color: AppColors.whiteSmoke, fontSize: 18, fontWeight: FontWeight.bold),
           ),
@@ -161,7 +161,7 @@ class DronePage extends GetView<DroneController> {
   String? pesoValidator(String? peso) {
     if (peso != null && peso.isNotEmpty) {
       try {
-        if (double.parse(peso) > controller.drone.cargaMaxima) return 'Peso excedido';
+        if (double.parse(peso) > controller.drone.value.cargaMaxima) return 'Peso excedido';
       } catch (e) {
         return 'Dado inválido (use ponto ao invés de vírgula)';
       }

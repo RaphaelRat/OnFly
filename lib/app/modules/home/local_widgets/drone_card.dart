@@ -7,13 +7,13 @@ import '../../../data/model/drone/drone.dart';
 import '../../../data/model/drone/drone_mock.dart';
 import '../../drone/drone_page.dart';
 
-Widget droneCard(Drone drone, {bool isDronePage = false}) {
+Widget droneCard(Rx<Drone> drone, {bool isDronePage = false}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 8),
     child: Hero(
-      tag: 'drone${drones.indexOf(drone)}',
+      tag: 'drone${drones.indexOf(drone.value)}',
       child: GestureDetector(
-        onTap: () => isDronePage ? imageDialog(drone) : Get.toNamed(DronePage.route, arguments: drone),
+        onTap: () => isDronePage ? imageDialog(drone.value) : Get.toNamed(DronePage.route, arguments: drone),
         child: Stack(
           fit: StackFit.loose,
           children: <Widget>[
@@ -47,7 +47,7 @@ Widget droneCard(Drone drone, {bool isDronePage = false}) {
                               : RichText(
                                   text: TextSpan(
                                     style: const TextStyle(color: AppColors.blackSurface, fontSize: 16, fontWeight: FontWeight.bold),
-                                    text: drone.modelo,
+                                    text: drone.value.modelo,
                                   ),
                                 ),
                           SizedBox(height: isDronePage ? 0 : 8),
@@ -67,7 +67,7 @@ Widget droneCard(Drone drone, {bool isDronePage = false}) {
                                             text: 'Autonomia: ',
                                             children: <TextSpan>[
                                               TextSpan(
-                                                text: '${drone.autonomia} minutos',
+                                                text: '${drone.value.autonomia} minutos',
                                                 style: const TextStyle(fontWeight: FontWeight.w700),
                                               ),
                                             ],
@@ -79,7 +79,7 @@ Widget droneCard(Drone drone, {bool isDronePage = false}) {
                                             text: 'Carga máxima: ',
                                             children: <TextSpan>[
                                               TextSpan(
-                                                text: '${drone.cargaMaxima} kg',
+                                                text: '${drone.value.cargaMaxima} kg',
                                                 style: const TextStyle(fontWeight: FontWeight.w700),
                                               ),
                                             ],
@@ -91,7 +91,7 @@ Widget droneCard(Drone drone, {bool isDronePage = false}) {
                                             text: 'Velocidade máxima: ',
                                             children: <TextSpan>[
                                               TextSpan(
-                                                text: ' ${drone.velMaxima} km/h',
+                                                text: ' ${drone.value.velMaxima} km/h',
                                                 style: const TextStyle(fontWeight: FontWeight.w700),
                                               ),
                                             ],
@@ -124,7 +124,7 @@ Widget droneCard(Drone drone, {bool isDronePage = false}) {
                       width: isDronePage ? 120 : 80,
                       height: isDronePage ? 120 : 80,
                       decoration: BoxDecoration(
-                        image: DecorationImage(fit: BoxFit.cover, image: AssetImage(drone.image)),
+                        image: DecorationImage(fit: BoxFit.cover, image: AssetImage(drone.value.image)),
                         borderRadius: const BorderRadius.all(Radius.circular(20.0)),
                         border: Border.all(color: AppColors.whiteSmoke),
                       ),
@@ -133,7 +133,7 @@ Widget droneCard(Drone drone, {bool isDronePage = false}) {
                 ],
               ),
             ),
-            drone.estaNoRadar
+            Obx(() => drone.value.estaNoRadar
                 ? Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -147,7 +147,7 @@ Widget droneCard(Drone drone, {bool isDronePage = false}) {
                       ),
                     ],
                   )
-                : Container()
+                : Container()),
           ],
         ),
       ),

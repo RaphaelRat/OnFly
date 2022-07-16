@@ -77,7 +77,7 @@ class HomePage extends GetView<HomeController> {
             const Divider(height: 1),
             Expanded(
               child: ListView.builder(
-                itemBuilder: (context, index) => droneCard(drones[index]),
+                itemBuilder: (context, index) => droneCard(drones[index].obs),
                 itemCount: controller.user.value.quantidadeDrone,
               ),
             )

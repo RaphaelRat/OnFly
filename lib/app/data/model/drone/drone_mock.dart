@@ -49,7 +49,7 @@ final drone6Mock = Drone(
   estaNoRadar: true,
 );
 
-List drones = [
+List<Drone> drones = [
   drone1Mock,
   drone2Mock,
   drone3Mock,

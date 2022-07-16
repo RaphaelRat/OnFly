@@ -5,14 +5,13 @@ import '../../data/model/entrega_form/entrega_form.dart';
 import '../map/map_page.dart';
 
 class DroneController extends GetxController {
-  late Drone drone;
+  late Rx<Drone> drone;
   final isLoading = false.obs;
   final Rx<EntregaForm> entregaForm = EntregaForm().obs;
 
   @override
   void onInit() {
     drone = Get.arguments;
-
     super.onInit();
   }
 
@@ -20,7 +19,9 @@ class DroneController extends GetxController {
     isLoading.value = true;
     await Future.delayed(const Duration(seconds: 1));
     isLoading.value = false;
-    Get.toNamed(MapPage.route, arguments: drone);
+    drone.value.estaNoRadar = true;
+    drone.refresh();
+    Get.toNamed(MapPage.route, arguments: drone.value);
   }
 
   void onPartidaFormChanged(String? novaPartida) {
