@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
+import 'package:onfly/app/modules/home/home_page.dart';
 
 import '../../core/globals/auth_controller.dart';
 import '../../data/model/login_form/login_form.dart';
 import '../../data/model/user/user_mock.dart';
-
-import '../bottom_navigation/bottom_navigation_page.dart';
 
 class LoginController extends GetxController {
   final RxBool isLoading = false.obs;
@@ -37,7 +36,7 @@ class LoginController extends GetxController {
       authController.isUserAlreadySet.value = true;
     }
 
-    Get.offAndToNamed(BottomNavigationPage.route);
+    Get.offAndToNamed(HomePage.route);
   }
 
   void onEmailFormChanged(String? novoEmail) {

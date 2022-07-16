@@ -8,18 +8,26 @@ import './profile_controller.dart';
 
 class ProfilePage extends GetView<ProfileController> {
   const ProfilePage({Key? key}) : super(key: key);
+  static String route = '/profile';
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.almostWhite,
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(height: 16),
-              CircleAvatar(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                IconButton(onPressed: Get.back, icon: const Icon(Icons.arrow_back_ios)),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Hero(
+              tag: 'ProfilePicture',
+              child: CircleAvatar(
                 radius: 66,
                 backgroundColor: AppColors.indigoA700,
                 child: CircleAvatar(
@@ -32,46 +40,46 @@ class ProfilePage extends GetView<ProfileController> {
                           : const AssetImage('assets/images/nicolas.jpg')),
                 ),
               ),
-              const SizedBox(height: 16),
-              Text(
-                controller.user.value.nome,
-                style: const TextStyle(fontSize: 24),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              controller.user.value.nome,
+              style: const TextStyle(fontSize: 24),
+            ),
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(16)),
+                color: AppColors.indigoA700,
               ),
-              const SizedBox(height: 16),
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(16)),
-                  color: AppColors.indigoA700,
-                ),
-                child: Text('${controller.user.value.quantidadeDrone} drones', style: const TextStyle(color: AppColors.whiteSmoke)),
+              child: Text('${controller.user.value.quantidadeDrone} drones', style: const TextStyle(color: AppColors.whiteSmoke)),
+            ),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(32),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 24),
+                  menuIcon(
+                    texto: 'Editar perfil',
+                    icone: Icons.edit,
+                    funcao: () => showGetSnackbar(text: 'Em desenvolvimento'),
+                  ),
+                  const SizedBox(height: 24),
+                  menuIcon(
+                    texto: 'Mudar senha',
+                    icone: Icons.key,
+                    funcao: () => showGetSnackbar(text: 'Em desenvolvimento'),
+                  ),
+                  const SizedBox(height: 24),
+                  menuIcon(texto: 'Encerrar sessão', icone: Icons.edit, funcao: abrirDialog),
+                  const SizedBox(height: 24),
+                ],
               ),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(32),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 24),
-                    menuIcon(
-                      texto: 'Editar perfil',
-                      icone: Icons.edit,
-                      funcao: () => showGetSnackbar(text: 'Em desenvolvimento'),
-                    ),
-                    const SizedBox(height: 24),
-                    menuIcon(
-                      texto: 'Mudar senha',
-                      icone: Icons.key,
-                      funcao: () => showGetSnackbar(text: 'Em desenvolvimento'),
-                    ),
-                    const SizedBox(height: 24),
-                    menuIcon(texto: 'Encerrar sessão', icone: Icons.edit, funcao: abrirDialog),
-                    const SizedBox(height: 24),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

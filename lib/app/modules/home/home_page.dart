@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:onfly/app/modules/profile/profile_page.dart';
 
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/snackbar.dart';
@@ -9,6 +10,7 @@ import './home_controller.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
+  static String route = '/home';
 
   @override
   Widget build(BuildContext context) {
@@ -23,17 +25,23 @@ class HomePage extends GetView<HomeController> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CircleAvatar(
-                    radius: 24,
-                    backgroundColor: AppColors.indigoA700,
-                    child: CircleAvatar(
-                      radius: 21,
-                      backgroundColor: AppColors.whiteSmoke,
+                  GestureDetector(
+                    onTap: () => Get.toNamed(ProfilePage.route),
+                    child: Hero(
+                      tag: 'ProfilePicture',
                       child: CircleAvatar(
-                          radius: 20,
-                          backgroundImage: controller.user.value.nome == 'Raphael Abreu'
-                              ? const AssetImage('assets/images/raphael.jpg')
-                              : const AssetImage('assets/images/nicolas.jpg')),
+                        radius: 24,
+                        backgroundColor: AppColors.indigoA700,
+                        child: CircleAvatar(
+                          radius: 21,
+                          backgroundColor: AppColors.whiteSmoke,
+                          child: CircleAvatar(
+                              radius: 20,
+                              backgroundImage: controller.user.value.nome == 'Raphael Abreu'
+                                  ? const AssetImage('assets/images/raphael.jpg')
+                                  : const AssetImage('assets/images/nicolas.jpg')),
+                        ),
+                      ),
                     ),
                   ),
                   GestureDetector(
@@ -76,9 +84,15 @@ class HomePage extends GetView<HomeController> {
             const SizedBox(height: 30),
             const Divider(height: 1),
             Expanded(
-              child: ListView.builder(
-                itemBuilder: (context, index) => droneCard(drones[index].obs),
-                itemCount: controller.user.value.quantidadeDrone,
+              child: NotificationListener<OverscrollIndicatorNotification>(
+                onNotification: (overscroll) {
+                  overscroll.disallowIndicator();
+                  return false;
+                },
+                child: ListView.builder(
+                  itemBuilder: (context, index) => droneCard(drones[index].obs),
+                  itemCount: controller.user.value.quantidadeDrone,
+                ),
               ),
             )
           ],
