@@ -68,11 +68,11 @@ Widget formDrone({required BuildContext context, required GlobalKey<FormState> d
             child: AnimatedSwitcher(
               duration: const Duration(milliseconds: 200),
               child: controller.isLoading.value
-                  ? const Center(child: CircularProgressIndicator(color: AppColors.indigoA700))
+                  ? const Center(child: CircularProgressIndicator(color: AppColors.mainColor))
                   : SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(AppColors.indigoA700)),
+                        style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(AppColors.mainColor)),
                         child: const Text('Enviar'),
                         onPressed: () => onEnviarPressed(droneFormKey: droneFormKey, controller: controller),
                       ),

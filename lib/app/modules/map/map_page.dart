@@ -13,7 +13,7 @@ class MapPage extends GetView<MapController> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Localização'),
-          backgroundColor: AppColors.indigoA700,
+          backgroundColor: AppColors.mainColor,
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,19 +37,19 @@ class MapPage extends GetView<MapController> {
                 children: [
                   RichText(
                       text: const TextSpan(
-                          style: TextStyle(color: AppColors.blackSurface, fontSize: 16),
+                          style: TextStyle(color: AppColors.black, fontSize: 16),
                           text: 'Prazo estimado para entrega: ',
                           children: <TextSpan>[TextSpan(text: ' 6 minutos', style: TextStyle(fontWeight: FontWeight.w700))])),
                   const SizedBox(height: 16),
                   RichText(
                       text: const TextSpan(
-                          style: TextStyle(color: AppColors.blackSurface, fontSize: 16),
+                          style: TextStyle(color: AppColors.black, fontSize: 16),
                           text: 'Gasto estimado do drone: ',
                           children: <TextSpan>[TextSpan(text: ' 80 centavos', style: TextStyle(fontWeight: FontWeight.w700))])),
                   const SizedBox(height: 16),
                   RichText(
                       text: TextSpan(
-                          style: const TextStyle(color: AppColors.blackSurface, fontSize: 16),
+                          style: const TextStyle(color: AppColors.black, fontSize: 16),
                           text: 'Velocidade do drone: ',
                           children: <TextSpan>[
                         TextSpan(text: ' ${controller.drone.value.velMaxima} km/h', style: const TextStyle(fontWeight: FontWeight.w700))
@@ -61,11 +61,11 @@ class MapPage extends GetView<MapController> {
                       () => AnimatedSwitcher(
                         duration: const Duration(milliseconds: 200),
                         child: controller.isLoading.value
-                            ? const Center(child: CircularProgressIndicator(color: AppColors.indigoA700))
+                            ? const Center(child: CircularProgressIndicator(color: AppColors.mainColor))
                             : SizedBox(
                                 width: double.infinity,
                                 child: ElevatedButton(
-                                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(AppColors.indigoA700)),
+                                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(AppColors.mainColor)),
                                   child: const Text('Retornar drone'),
                                   onPressed: controller.voltarDrone,
                                 ),

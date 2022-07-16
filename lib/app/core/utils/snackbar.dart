@@ -15,7 +15,7 @@ void showGetSnackbar({
     snackPosition: position,
     duration: Duration(seconds: duration),
     borderRadius: 4,
-    backgroundColor: AppColors.blackSurface,
+    backgroundColor: AppColors.black,
     margin: const EdgeInsets.fromLTRB(8, 0, 8, 16),
     padding: const EdgeInsets.all(16),
     messageText: Text(text, style: Get.theme.textTheme.caption!.copyWith(color: Colors.white)),

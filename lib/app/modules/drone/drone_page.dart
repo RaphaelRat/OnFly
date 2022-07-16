@@ -19,7 +19,7 @@ class DronePage extends GetView<DroneController> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: AppColors.indigoA700,
+        backgroundColor: AppColors.mainColor,
         appBar: AppBar(
           title: Text(
             controller.drone.value.modelo,
@@ -36,7 +36,7 @@ class DronePage extends GetView<DroneController> {
               ),
             ),
           ],
-          backgroundColor: AppColors.indigoA700,
+          backgroundColor: AppColors.mainColor,
           elevation: 0,
         ),
         body: NotificationListener<OverscrollIndicatorNotification>(

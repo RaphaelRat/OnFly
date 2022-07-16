@@ -31,7 +31,7 @@ class HomePage extends GetView<HomeController> {
                       tag: 'ProfilePicture',
                       child: CircleAvatar(
                         radius: 24,
-                        backgroundColor: AppColors.indigoA700,
+                        backgroundColor: AppColors.mainColor,
                         child: CircleAvatar(
                             radius: 21,
                             backgroundColor: AppColors.whiteSmoke,
@@ -47,8 +47,8 @@ class HomePage extends GetView<HomeController> {
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                          color: AppColors.indigoA700,
-                          border: Border.all(color: AppColors.indigoA700),
+                          color: AppColors.mainColor,
+                          border: Border.all(color: AppColors.mainColor),
                           borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(20), topLeft: Radius.circular(20))),
                       child: Row(
                         children: const [
@@ -68,7 +68,7 @@ class HomePage extends GetView<HomeController> {
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
                 'Olá, ${controller.user.value.nome}',
-                style: const TextStyle(color: AppColors.indigoA200, fontSize: 16, fontWeight: FontWeight.w500),
+                style: const TextStyle(color: AppColors.secondaryColor, fontSize: 16, fontWeight: FontWeight.w500),
               ),
             ),
             const SizedBox(height: 6),
@@ -76,7 +76,7 @@ class HomePage extends GetView<HomeController> {
               padding: EdgeInsets.only(left: 16.0),
               child: Text(
                 'Com qual drone deseja realizar sua entrega?',
-                style: TextStyle(color: AppColors.indigoA700, fontSize: 20, fontWeight: FontWeight.w600),
+                style: TextStyle(color: AppColors.mainColor, fontSize: 20, fontWeight: FontWeight.w600),
               ),
             ),
             const SizedBox(height: 30),

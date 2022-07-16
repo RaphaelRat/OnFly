@@ -6,15 +6,15 @@ InputDecoration getFormFieldDecoration(BuildContext context, bool enabled, Strin
   final theme = Theme.of(context);
   final textTheme = theme.textTheme;
   return InputDecoration(
-    floatingLabelStyle: const TextStyle(color: AppColors.indigoA700),
+    floatingLabelStyle: const TextStyle(color: AppColors.mainColor),
     contentPadding: const EdgeInsets.fromLTRB(16, 18, 24, 14),
     enabled: enabled,
     focusedBorder: OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.indigoA700, width: 1),
+      borderSide: const BorderSide(color: AppColors.mainColor, width: 1),
       borderRadius: BorderRadius.circular(8),
     ),
     enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.black.withOpacity(0.38), width: 1),
+      borderSide: BorderSide(color: AppColors.blackDisabled, width: 1),
       borderRadius: BorderRadius.circular(8),
     ),
     disabledBorder: OutlineInputBorder(
@@ -22,16 +22,16 @@ InputDecoration getFormFieldDecoration(BuildContext context, bool enabled, Strin
       borderRadius: BorderRadius.circular(8),
     ),
     errorBorder: OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.red900, width: 2),
+      borderSide: const BorderSide(color: AppColors.errorColor, width: 2),
       borderRadius: BorderRadius.circular(8),
     ),
     focusedErrorBorder: OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.red900, width: 2),
+      borderSide: const BorderSide(color: AppColors.errorColor, width: 2),
       borderRadius: BorderRadius.circular(8),
     ),
     labelText: label,
     errorText: null,
-    errorStyle: textTheme.subtitle2?.copyWith(color: AppColors.red900),
+    errorStyle: textTheme.subtitle2?.copyWith(color: AppColors.errorColor),
     fillColor: Colors.transparent,
     filled: true,
   );
@@ -47,7 +47,7 @@ InputDecoration getTextFieldDecoration({
     suffixIcon: isInvalid
         ? const Icon(
             Icons.error_outline,
-            color: AppColors.red900,
+            color: AppColors.errorColor,
             size: 24,
           )
         : null,

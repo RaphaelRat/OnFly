@@ -46,7 +46,7 @@ Widget droneCard(Rx<Drone> drone, {bool isDronePage = false}) {
                               ? Container()
                               : RichText(
                                   text: TextSpan(
-                                    style: const TextStyle(color: AppColors.blackSurface, fontSize: 16, fontWeight: FontWeight.bold),
+                                    style: const TextStyle(color: AppColors.black, fontSize: 16, fontWeight: FontWeight.bold),
                                     text: drone.value.modelo,
                                   ),
                                 ),
@@ -63,7 +63,7 @@ Widget droneCard(Rx<Drone> drone, {bool isDronePage = false}) {
                                       children: [
                                         RichText(
                                           text: TextSpan(
-                                            style: const TextStyle(color: AppColors.blackSurface),
+                                            style: const TextStyle(color: AppColors.black),
                                             text: 'Autonomia: ',
                                             children: <TextSpan>[
                                               TextSpan(
@@ -75,7 +75,7 @@ Widget droneCard(Rx<Drone> drone, {bool isDronePage = false}) {
                                         ),
                                         RichText(
                                           text: TextSpan(
-                                            style: const TextStyle(color: AppColors.blackSurface),
+                                            style: const TextStyle(color: AppColors.black),
                                             text: 'Carga máxima: ',
                                             children: <TextSpan>[
                                               TextSpan(
@@ -87,7 +87,7 @@ Widget droneCard(Rx<Drone> drone, {bool isDronePage = false}) {
                                         ),
                                         RichText(
                                           text: TextSpan(
-                                            style: const TextStyle(color: AppColors.blackSurface),
+                                            style: const TextStyle(color: AppColors.black),
                                             text: 'Velocidade máxima: ',
                                             children: <TextSpan>[
                                               TextSpan(
@@ -142,7 +142,7 @@ Widget droneCard(Rx<Drone> drone, {bool isDronePage = false}) {
                         padding: EdgeInsets.only(top: isDronePage ? 28 : 8, right: 24),
                         child: const Icon(
                           Icons.radar,
-                          color: AppColors.indigoA700,
+                          color: AppColors.mainColor,
                         ),
                       ),
                     ],

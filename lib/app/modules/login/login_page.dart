@@ -23,7 +23,7 @@ class LoginPage extends GetView<LoginController> {
         body: GestureDetector(
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: Container(
-            color: AppColors.indigoA700,
+            color: AppColors.mainColor,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -83,7 +83,7 @@ class LoginPage extends GetView<LoginController> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             'Usuário ou senha incorretos',
-                                            style: textTheme.caption?.copyWith(color: AppColors.red900),
+                                            style: textTheme.caption?.copyWith(color: AppColors.errorColor),
                                           ),
                                         )
                                       : const SizedBox(),
@@ -95,11 +95,11 @@ class LoginPage extends GetView<LoginController> {
                                     () => AnimatedSwitcher(
                                       duration: const Duration(milliseconds: 200),
                                       child: controller.isLoading.value
-                                          ? const Center(child: CircularProgressIndicator(color: AppColors.indigoA700))
+                                          ? const Center(child: CircularProgressIndicator(color: AppColors.mainColor))
                                           : SizedBox(
                                               width: double.infinity,
                                               child: ElevatedButton(
-                                                style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(AppColors.indigoA700)),
+                                                style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(AppColors.mainColor)),
                                                 child: const Text('Iniciar sessão'),
                                                 onPressed: () => onConnectPressed(loginFormKey),
                                               ),
@@ -109,7 +109,7 @@ class LoginPage extends GetView<LoginController> {
                                 ),
                                 const SizedBox(height: 8),
                                 TextButton(
-                                  child: Text('Esqueceu sua senha?', style: textTheme.bodyMedium?.copyWith(color: AppColors.indigoA700)),
+                                  child: Text('Esqueceu sua senha?', style: textTheme.bodyMedium?.copyWith(color: AppColors.mainColor)),
                                   onPressed: () => showGetSnackbar(text: 'Em desenvolvimento'),
                                 ),
                                 const SizedBox(height: 16),
@@ -120,7 +120,7 @@ class LoginPage extends GetView<LoginController> {
                                       const TextSpan(text: 'Não possui uma conta?  '),
                                       WidgetSpan(
                                         child: GestureDetector(
-                                          child: const Text('Cadastre-se', style: TextStyle(color: AppColors.indigoA700)),
+                                          child: const Text('Cadastre-se', style: TextStyle(color: AppColors.mainColor)),
                                           onTap: () => showGetSnackbar(text: 'Em desenvolvimento'),
                                         ),
                                       ),

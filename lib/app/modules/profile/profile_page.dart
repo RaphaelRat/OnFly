@@ -29,7 +29,7 @@ class ProfilePage extends GetView<ProfileController> {
               tag: 'ProfilePicture',
               child: CircleAvatar(
                 radius: 66,
-                backgroundColor: AppColors.indigoA700,
+                backgroundColor: AppColors.mainColor,
                 child: CircleAvatar(
                   radius: 62,
                   backgroundColor: AppColors.whiteSmoke,
@@ -47,7 +47,7 @@ class ProfilePage extends GetView<ProfileController> {
               padding: const EdgeInsets.all(8),
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(16)),
-                color: AppColors.indigoA700,
+                color: AppColors.mainColor,
               ),
               child: Text('${controller.user.value.quantidadeDrone} drones', style: const TextStyle(color: AppColors.whiteSmoke)),
             ),
@@ -93,7 +93,7 @@ class ProfilePage extends GetView<ProfileController> {
             onPressed: Get.back,
           ),
           TextButton(
-            child: const Text('Sair', style: TextStyle(fontSize: 16, color: AppColors.indigoA700)),
+            child: const Text('Sair', style: TextStyle(fontSize: 16, color: AppColors.mainColor)),
             onPressed: controller.logout,
           ),
         ]);

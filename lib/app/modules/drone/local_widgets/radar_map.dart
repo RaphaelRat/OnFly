@@ -27,7 +27,7 @@ Widget radarMap(Rx<Drone> drone) {
                   image: const DecorationImage(fit: BoxFit.cover, image: AssetImage('assets/images/map.jpg')),
                   borderRadius: BorderRadius.circular(20),
                   color: AppColors.whiteSmoke,
-                  border: Border.all(color: AppColors.indigoA700_12, width: 4),
+                  border: Border.all(color: AppColors.mainColor_12, width: 4),
                 ),
               ),
             ),
