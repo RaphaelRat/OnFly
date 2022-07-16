@@ -10,7 +10,7 @@ InputDecoration getFormFieldDecoration(BuildContext context, bool enabled, Strin
     contentPadding: const EdgeInsets.fromLTRB(16, 18, 24, 14),
     enabled: enabled,
     focusedBorder: OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.indigoA200, width: 1),
+      borderSide: const BorderSide(color: AppColors.indigoA700, width: 1),
       borderRadius: BorderRadius.circular(8),
     ),
     enabledBorder: OutlineInputBorder(
@@ -42,7 +42,6 @@ InputDecoration getTextFieldDecoration({
   required bool enabled,
   required String label,
   required bool isInvalid,
-  FocusNode? focus,
 }) {
   return getFormFieldDecoration(context, enabled, label).copyWith(
     suffixIcon: isInvalid
