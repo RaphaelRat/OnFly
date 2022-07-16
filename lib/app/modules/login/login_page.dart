@@ -87,7 +87,7 @@ class LoginPage extends GetView<LoginController> {
                                 () => AnimatedSwitcher(
                                   duration: const Duration(milliseconds: 200),
                                   child: controller.isLoading.value
-                                      ? const Center(child: CircularProgressIndicator())
+                                      ? const Center(child: CircularProgressIndicator(color: AppColors.indigoA700))
                                       : SizedBox(
                                           width: double.infinity,
                                           child: ElevatedButton(
