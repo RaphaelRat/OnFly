@@ -88,6 +88,7 @@ class HomePage extends GetView<HomeController> {
                   return false;
                 },
                 child: ListView.builder(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
                   itemBuilder: (context, index) => droneCard(drones[index].obs),
                   itemCount: controller.user.value.quantidadeDrone,
                 ),
