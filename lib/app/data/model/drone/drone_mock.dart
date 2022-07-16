@@ -1,7 +1,7 @@
 import './drone.dart';
 
 final drone1Mock = Drone(
-  modelo: 'Aurelia X6 Standard - Ready To Fly',
+  modelo: 'Aurelia X6 Standard',
   velMaxima: 56,
   autonomia: 30,
   cargaMaxima: 5,
