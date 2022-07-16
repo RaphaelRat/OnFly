@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:onfly/app/modules/map/map_controller.dart';
+import 'package:onfly/app/modules/map/map_page.dart';
 
 import '../modules/bottom_navigation/bottom_navigation_controller.dart';
 import '../modules/bottom_navigation/bottom_navigation_page.dart';
@@ -31,6 +33,11 @@ List<GetPage> getAppPages() {
       name: DronePage.route,
       page: () => const DronePage(),
       binding: BindingsBuilder(() => Get.lazyPut<DroneController>(() => DroneController())),
+    ),
+    GetPage(
+      name: MapPage.route,
+      page: () => const MapPage(),
+      binding: BindingsBuilder(() => Get.lazyPut<MapController>(() => MapController())),
     ),
   ];
 }

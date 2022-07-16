@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:onfly/app/core/utils/snackbar.dart';
 
 import '../../data/model/drone/drone.dart';
 import '../../data/model/entrega_form/entrega_form.dart';
+import '../map/map_page.dart';
 
 class DroneController extends GetxController {
   late Drone drone;
@@ -20,7 +20,7 @@ class DroneController extends GetxController {
     isLoading.value = true;
     await Future.delayed(const Duration(seconds: 1));
     isLoading.value = false;
-    showGetSnackbar(text: 'Enviando...');
+    Get.toNamed(MapPage.route, arguments: drone);
   }
 
   void onPartidaFormChanged(String? novaPartida) {
