@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/snackbar.dart';
 import '../../data/model/drone/drone_mock.dart';
-import './local_widgets/drone_card.dart';
+import '../../global_widgets/drone_card.dart';
 import './home_controller.dart';
 
 class HomePage extends GetView<HomeController> {

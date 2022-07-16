@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/snackbar.dart';
-import '../home/local_widgets/drone_card.dart';
+import '../../global_widgets/drone_card.dart';
 import './local_widgets/form_drone.dart';
 import './local_widgets/radar_map.dart';
 import './drone_controller.dart';
