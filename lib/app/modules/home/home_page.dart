@@ -17,6 +17,12 @@ class HomePage extends GetView<HomeController> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.almostWhite,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => showGetSnackbar(text: 'Em desenvolvimento'),
+          child: const Icon(Icons.add),
+          tooltip: 'Adicionar novo drone',
+          backgroundColor: AppColors.mainColor,
+        ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
