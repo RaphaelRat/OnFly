@@ -48,6 +48,7 @@ class LoginPage extends GetView<LoginController> {
                             const SizedBox(height: 36),
                             TextFormField(
                               decoration: getTextFieldDecoration(context: context, enabled: true, label: 'Email', isInvalid: false),
+                              keyboardType: TextInputType.emailAddress,
                               validator: (email) => email == null || email.isEmpty ? 'Campo obrigatório' : null,
                               initialValue: kReleaseMode ? null : users.elementAt(0).email,
                               onSaved: controller.onEmailFormChanged,
