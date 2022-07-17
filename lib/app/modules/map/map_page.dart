@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/theme/app_colors.dart';
+import '../../core/theme/theme.dart';
 import './map_controller.dart';
 
 class MapPage extends GetView<MapController> {

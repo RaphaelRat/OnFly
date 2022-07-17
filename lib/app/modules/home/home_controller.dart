@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:onfly/app/data/model/drone/drone_mock.dart';
 
-import '../../core/globals/auth_controller.dart';
+import '../../data/model/drone/drone.dart';
+import '../../core/globals/globals.dart';
 
 class HomeController extends GetxController {
   final user = AuthController.instance.user;

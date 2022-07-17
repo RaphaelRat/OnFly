@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/theme/app_colors.dart';
-import '../../core/utils/snackbar.dart';
-import '../../global_widgets/drone_card.dart';
-import './local_widgets/form_drone.dart';
-import './local_widgets/radar_map.dart';
+import '../../core/core.dart';
+import '../../global_widgets/global_widgets.dart';
+import './local_widgets/local_widgets.dart';
 import './drone_controller.dart';
 
 class DronePage extends GetView<DroneController> {

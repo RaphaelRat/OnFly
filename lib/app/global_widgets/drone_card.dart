@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../core/theme/app_colors.dart';
+import '../core/theme/theme.dart';
 import '../data/model/drone/drone.dart';
-import '../data/model/drone/drone_mock.dart';
 import '../modules/drone/drone_page.dart';
 
 Widget droneCard(Rx<Drone> drone, {bool isDronePage = false}) {

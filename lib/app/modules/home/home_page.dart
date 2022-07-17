@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:onfly/app/modules/profile/profile_page.dart';
 
-import '../../core/theme/app_colors.dart';
-import '../../core/utils/snackbar.dart';
-import '../../data/model/drone/drone_mock.dart';
-import '../../global_widgets/drone_card.dart';
+import '../../core/core.dart';
+import '../../data/model/drone/drone.dart';
+import '../../global_widgets/global_widgets.dart';
+import '../profile/profile_page.dart';
 import './home_controller.dart';
 
 class HomePage extends GetView<HomeController> {

@@ -1,4 +1,4 @@
-import './user.dart';
+import './user_model.dart';
 
 final userRaphael = User(
   email: 'raphael@gmail.com',

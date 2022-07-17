@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/theme/app_colors.dart';
-import '../../core/utils/snackbar.dart';
-import 'local_widgets/menu_icon.dart';
+import '../../core/core.dart';
+import './local_widgets/local_widgets.dart';
 import './profile_controller.dart';
 
 class ProfilePage extends GetView<ProfileController> {

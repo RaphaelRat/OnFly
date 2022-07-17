@@ -1,4 +1,4 @@
-import './drone.dart';
+import './drone_model.dart';
 
 final drone1Mock = Drone(
   modelo: 'Aurelia X6 Standard',

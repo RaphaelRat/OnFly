@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../data/model/drone/drone.dart';
-import '../../data/model/entrega_form/entrega_form.dart';
+import '../../data/data.dart';
 import '../map/map_page.dart';
 
 class DroneController extends GetxController {

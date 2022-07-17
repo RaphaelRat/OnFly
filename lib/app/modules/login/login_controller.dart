@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
 import 'package:onfly/app/modules/home/home_page.dart';
 
-import '../../core/globals/auth_controller.dart';
-import '../../data/model/login_form/login_form.dart';
-import '../../data/model/user/user_mock.dart';
+import '../../core/globals/globals.dart';
+import '../../data/data.dart';
 
 class LoginController extends GetxController {
   final RxBool isLoading = false.obs;

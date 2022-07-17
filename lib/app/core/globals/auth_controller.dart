@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import 'package:onfly/app/data/model/user/user.dart';
+
+import '../../data/model/user/user_model.dart';
 
 class AuthController extends GetxController {
   late final Rx<User> user;

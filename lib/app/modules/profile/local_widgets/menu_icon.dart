@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/theme.dart';
 
 Widget menuIcon({required String texto, required IconData icone, required void Function() funcao}) {
   return GestureDetector(

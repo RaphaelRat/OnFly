@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../core/utils/snackbar.dart';
+import '../../core/utils/utils.dart';
 import '../../data/model/drone/drone.dart';
 
 class MapController extends GetxController {

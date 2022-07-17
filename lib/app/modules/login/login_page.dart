@@ -2,12 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:onfly/app/data/model/user/user_mock.dart';
 
-import '../../core/utils/snackbar.dart';
-import '../../core/theme/form_field_input_decoration.dart';
-import '../../core/theme/app_colors.dart';
-import 'login_controller.dart';
+import '../../data/model/user/user.dart';
+import '../../core/core.dart';
+import './login_controller.dart';
 
 class LoginPage extends GetView<LoginController> {
   const LoginPage({Key? key}) : super(key: key);

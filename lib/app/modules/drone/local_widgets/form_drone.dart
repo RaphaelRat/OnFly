@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../../../core/theme/app_colors.dart';
-import '../../../core/theme/form_field_input_decoration.dart';
+import '../../../core/theme/theme.dart';
 import '../drone_controller.dart';
 
 Widget formDrone({required BuildContext context, required GlobalKey<FormState> droneFormKey}) {
