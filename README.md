@@ -8,7 +8,7 @@ A ideia do app consiste em ser um aplicativo simples e prático para que o dono 
 
 Todas as imagens dos drones foram tiradas do google e seus créditos estão no final do README.md. E as fotos de perfil dos usuários foram tiradas do Whatsapp dos membros da equipe do projeto (previamente autorizadas).
 
-A proposta do trabalho era apresentar um documento de planejamento e gestão de um projeto, que será anexando aqui em breve, e apresentar um pitch. Com isso a ideia do app surgiu apenas para ser um protótio de um projeto idealizado no documento citado, logo sem fins lucrativos.
+A proposta do trabalho era apresentar um documento de planejamento e gestão de um projeto ([Projeto_On_Fly.pdf](https://github.com/RaphaelRat/OnFly/files/9129010/Projeto_On_Fly.pdf)) e apresentar um pitch. Com isso a ideia do app surgiu apenas para ser um protótio de um projeto idealizado no documento citado, logo sem fins lucrativos.
 
 Para testar o aplicativo, você precisar possuir um emulador Android, uma IDE que rode Flutter e o próprio Flutter instalado. Após abrir um projeto, basta executá-lo em modo debug ou então rodar o comando no cmd:
 
@@ -26,7 +26,7 @@ E como o app não possui conexão com a internet e não possui nenhuma bibliotec
 > 
 > matheus@gmail.com  -> possui 2 drones
 
-O documento citado e cima foi escrito por mim, pelo Nicolas e pelo Matheus. Em breve anexarei o link do GitHub deles aqui.
+O [documento](https://github.com/RaphaelRat/OnFly/files/9129010/Projeto_On_Fly.pdf) citado e cima foi escrito por [mim](https://github.com/RaphaelRat), pelo [Nicolas](https://github.com/nicolasbaumle) e pelo [Matheus](https://gist.github.com/matheuskolln).
 
 ---
 
@@ -68,7 +68,7 @@ Voltando apra a [HomePage](https://github.com/RaphaelRat/OnFly/blob/main/lib/app
  
 >  <img src="https://user-images.githubusercontent.com/89277770/179399667-6b2dab98-0a02-4130-b3d2-96e70609492c.gif" alt="Profile" width="250"/> <img src="https://user-images.githubusercontent.com/89277770/179399685-7e9d38a4-f359-4a2b-b203-bbc2791775bc.png" alt="Profile" width="250"/>  <img src="https://user-images.githubusercontent.com/89277770/179399904-653dd4fb-9c97-4c00-af32-cb0162c617ba.gif" alt="Profile" width="250"/>
  
-
+ 
  ---
 
 ### Crédito das imagens utilizadas
@@ -86,6 +86,7 @@ Drone 4: [PHOTOMKT](https://photomkt.com/servicio/drone/)
 Drone 5: [Portal Vida Livre](https://portalvidalivre.com/articles/1301)
 
 Drone 6: [TECHWORM](https://www.techworm.net/2022/04/dji-mini-3-pro-specs-photos-leaked.html)
+
 
 
  
