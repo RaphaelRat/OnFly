@@ -2,6 +2,9 @@
 
 Aplicativo desenvolvido como trabalho final para disciplina de Planejamento e Gestão de Projetos do curso de Engenharia de Computação da UFSC.
 
+> Pode baixar todo o projeto [aqui](https://github.com/RaphaelRat/OnFly/files/9129053/Projeto_On_Fly.zip).
+
+
 A ideia do app consiste em ser um aplicativo simples e prático para que o dono de um estabelecimento possa realizar entregas a partir dos seus drones e acompanhá-los em tempo real. Sendo assim, no app é possível cadastrar seu drone com suas características e suas limitações, após ter um drone cadastrado, você pode selecioná-lo para enviar e assim preencher com as informações necessárias para a entrega, como conteúdo, endereço e peso do conteúdo.
 
 ### Informações importantes
