@@ -11,16 +11,18 @@ class ProfilePage extends GetView<ProfileController> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColors.almostWhite,
-        body: Column(
+    return Scaffold(
+      backgroundColor: AppColors.almostWhite,
+      body: SafeArea(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 16),
             Row(
               children: [
-                IconButton(onPressed: Get.back, icon: const Icon(Icons.arrow_back_ios)),
+                IconButton(
+                    onPressed: Get.back,
+                    icon: const Icon(Icons.arrow_back_ios)),
               ],
             ),
             const SizedBox(height: 16),
@@ -32,7 +34,9 @@ class ProfilePage extends GetView<ProfileController> {
                 child: CircleAvatar(
                   radius: 62,
                   backgroundColor: AppColors.whiteSmoke,
-                  child: CircleAvatar(radius: 60, backgroundImage: AssetImage(controller.user.value.foto)),
+                  child: CircleAvatar(
+                      radius: 60,
+                      backgroundImage: AssetImage(controller.user.value.foto)),
                 ),
               ),
             ),
@@ -48,7 +52,8 @@ class ProfilePage extends GetView<ProfileController> {
                 borderRadius: BorderRadius.all(Radius.circular(16)),
                 color: AppColors.mainColor,
               ),
-              child: Text('${controller.user.value.quantidadeDrone} drones', style: const TextStyle(color: AppColors.whiteSmoke)),
+              child: Text('${controller.user.value.quantidadeDrone} drones',
+                  style: const TextStyle(color: AppColors.whiteSmoke)),
             ),
             Container(
               width: double.infinity,
@@ -69,7 +74,10 @@ class ProfilePage extends GetView<ProfileController> {
                     funcao: () => showGetSnackbar(text: 'Em desenvolvimento'),
                   ),
                   const SizedBox(height: 24),
-                  menuIcon(texto: 'Encerrar sessão', icone: Icons.edit, funcao: abrirDialog),
+                  menuIcon(
+                      texto: 'Encerrar sessão',
+                      icone: Icons.edit,
+                      funcao: abrirDialog),
                   const SizedBox(height: 24),
                 ],
               ),
@@ -85,14 +93,17 @@ class ProfilePage extends GetView<ProfileController> {
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         titlePadding: const EdgeInsets.symmetric(vertical: 16),
         title: 'Deseja encerrar sessão?',
-        middleText: 'Vai ser necessário fazer login novamente para acessar sua conta.',
+        middleText:
+            'Vai ser necessário fazer login novamente para acessar sua conta.',
         actions: [
           TextButton(
-            child: const Text('Cancelar', style: TextStyle(fontSize: 16, color: AppColors.blackInactive)),
+            child: const Text('Cancelar',
+                style: TextStyle(fontSize: 16, color: AppColors.blackInactive)),
             onPressed: Get.back,
           ),
           TextButton(
-            child: const Text('Sair', style: TextStyle(fontSize: 16, color: AppColors.mainColor)),
+            child: const Text('Sair',
+                style: TextStyle(fontSize: 16, color: AppColors.mainColor)),
             onPressed: controller.logout,
           ),
         ]);

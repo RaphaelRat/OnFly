@@ -13,16 +13,23 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColors.almostWhite,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => showGetSnackbar(text: 'Em desenvolvimento'),
-          child: const Icon(Icons.add),
-          tooltip: 'Adicionar novo drone',
-          backgroundColor: AppColors.mainColor,
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(0),
+        child: AppBar(
+          backgroundColor: AppColors.almostWhite,
+          elevation: 0,
         ),
-        body: Column(
+      ),
+      backgroundColor: AppColors.almostWhite,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => showGetSnackbar(text: 'Em desenvolvimento'),
+        child: const Icon(Icons.add),
+        tooltip: 'Adicionar novo drone',
+        backgroundColor: AppColors.mainColor,
+      ),
+      body: SafeArea(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
@@ -42,7 +49,8 @@ class HomePage extends GetView<HomeController> {
                             backgroundColor: AppColors.whiteSmoke,
                             child: CircleAvatar(
                               radius: 20,
-                              backgroundImage: AssetImage(controller.user.value.foto),
+                              backgroundImage:
+                                  AssetImage(controller.user.value.foto),
                             )),
                       ),
                     ),
@@ -54,12 +62,16 @@ class HomePage extends GetView<HomeController> {
                       decoration: BoxDecoration(
                           color: AppColors.mainColor,
                           border: Border.all(color: AppColors.mainColor),
-                          borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(20), topLeft: Radius.circular(20))),
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                              topLeft: Radius.circular(20))),
                       child: Row(
                         children: const [
-                          Icon(Icons.notifications_none_rounded, color: AppColors.whiteSmoke),
+                          Icon(Icons.notifications_none_rounded,
+                              color: AppColors.whiteSmoke),
                           SizedBox(width: 8),
-                          Icon(Icons.settings_outlined, color: AppColors.whiteSmoke),
+                          Icon(Icons.settings_outlined,
+                              color: AppColors.whiteSmoke),
                           SizedBox(width: 8),
                         ],
                       ),
@@ -73,7 +85,10 @@ class HomePage extends GetView<HomeController> {
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
                 'Olá, ${controller.user.value.nome}',
-                style: const TextStyle(color: AppColors.secondaryColor, fontSize: 16, fontWeight: FontWeight.w500),
+                style: const TextStyle(
+                    color: AppColors.secondaryColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500),
               ),
             ),
             const SizedBox(height: 6),
@@ -81,7 +96,10 @@ class HomePage extends GetView<HomeController> {
               padding: EdgeInsets.only(left: 16.0),
               child: Text(
                 'Com qual drone deseja realizar sua entrega?',
-                style: TextStyle(color: AppColors.mainColor, fontSize: 20, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    color: AppColors.mainColor,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600),
               ),
             ),
             const SizedBox(height: 30),
