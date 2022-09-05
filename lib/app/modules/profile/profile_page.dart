@@ -27,6 +27,7 @@ class ProfilePage extends GetView<ProfileController> {
             ),
             const SizedBox(height: 16),
             Hero(
+              transitionOnUserGestures: true,
               tag: 'ProfilePicture',
               child: CircleAvatar(
                 radius: 66,

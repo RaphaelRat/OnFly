@@ -40,6 +40,7 @@ class HomePage extends GetView<HomeController> {
                   GestureDetector(
                     onTap: () => Get.toNamed(ProfilePage.route),
                     child: Hero(
+                      transitionOnUserGestures: true,
                       tag: 'ProfilePicture',
                       child: CircleAvatar(
                         radius: 24,

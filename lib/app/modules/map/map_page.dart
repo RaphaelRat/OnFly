@@ -20,11 +20,16 @@ class MapPage extends GetView<MapController> {
           children: [
             Expanded(
               child: Hero(
+                transitionOnUserGestures: true,
                 tag: 'DroneImage',
                 child: Container(
                   decoration: const BoxDecoration(
-                    image: DecorationImage(fit: BoxFit.cover, image: AssetImage('assets/images/map.jpg')),
-                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('assets/images/map.jpg')),
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(30),
+                        bottomRight: Radius.circular(30)),
                     color: AppColors.whiteSmoke,
                   ),
                 ),
@@ -37,22 +42,35 @@ class MapPage extends GetView<MapController> {
                 children: [
                   RichText(
                       text: const TextSpan(
-                          style: TextStyle(color: AppColors.black, fontSize: 16),
+                          style:
+                              TextStyle(color: AppColors.black, fontSize: 16),
                           text: 'Prazo estimado para entrega: ',
-                          children: <TextSpan>[TextSpan(text: ' 6 minutos', style: TextStyle(fontWeight: FontWeight.w700))])),
+                          children: <TextSpan>[
+                        TextSpan(
+                            text: ' 6 minutos',
+                            style: TextStyle(fontWeight: FontWeight.w700))
+                      ])),
                   const SizedBox(height: 16),
                   RichText(
                       text: const TextSpan(
-                          style: TextStyle(color: AppColors.black, fontSize: 16),
+                          style:
+                              TextStyle(color: AppColors.black, fontSize: 16),
                           text: 'Gasto estimado do drone: ',
-                          children: <TextSpan>[TextSpan(text: ' 80 centavos', style: TextStyle(fontWeight: FontWeight.w700))])),
+                          children: <TextSpan>[
+                        TextSpan(
+                            text: ' 80 centavos',
+                            style: TextStyle(fontWeight: FontWeight.w700))
+                      ])),
                   const SizedBox(height: 16),
                   RichText(
                       text: TextSpan(
-                          style: const TextStyle(color: AppColors.black, fontSize: 16),
+                          style: const TextStyle(
+                              color: AppColors.black, fontSize: 16),
                           text: 'Velocidade do drone: ',
                           children: <TextSpan>[
-                        TextSpan(text: ' ${controller.drone.value.velMaxima} km/h', style: const TextStyle(fontWeight: FontWeight.w700))
+                        TextSpan(
+                            text: ' ${controller.drone.value.velMaxima} km/h',
+                            style: const TextStyle(fontWeight: FontWeight.w700))
                       ])),
                   const SizedBox(height: 16),
                   SizedBox(
@@ -61,11 +79,16 @@ class MapPage extends GetView<MapController> {
                       () => AnimatedSwitcher(
                         duration: const Duration(milliseconds: 200),
                         child: controller.isLoading.value
-                            ? const Center(child: CircularProgressIndicator(color: AppColors.mainColor))
+                            ? const Center(
+                                child: CircularProgressIndicator(
+                                    color: AppColors.mainColor))
                             : SizedBox(
                                 width: double.infinity,
                                 child: ElevatedButton(
-                                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(AppColors.mainColor)),
+                                  style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all<Color>(
+                                              AppColors.mainColor)),
                                   child: const Text('Retornar drone'),
                                   onPressed: controller.voltarDrone,
                                 ),

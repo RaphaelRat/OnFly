@@ -10,9 +10,12 @@ Widget droneCard(Rx<Drone> drone, {bool isDronePage = false}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 8),
     child: Hero(
+      transitionOnUserGestures: true,
       tag: 'drone${drones.indexOf(drone.value)}',
       child: GestureDetector(
-        onTap: () => isDronePage ? imageDialog(drone.value) : Get.toNamed(DronePage.route, arguments: drone),
+        onTap: () => isDronePage
+            ? imageDialog(drone.value)
+            : Get.toNamed(DronePage.route, arguments: drone),
         child: Stack(
           fit: StackFit.loose,
           children: <Widget>[
@@ -22,7 +25,8 @@ Widget droneCard(Rx<Drone> drone, {bool isDronePage = false}) {
               children: <Widget>[
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.only(right: 16.0, left: 56, top: isDronePage ? 20 : 0),
+                    padding: EdgeInsets.only(
+                        right: 16.0, left: 56, top: isDronePage ? 20 : 0),
                     child: Container(
                       height: isDronePage ? 80 : 140,
                       padding: const EdgeInsets.all(8),
@@ -45,53 +49,71 @@ Widget droneCard(Rx<Drone> drone, {bool isDronePage = false}) {
                               ? Container()
                               : RichText(
                                   text: TextSpan(
-                                    style: const TextStyle(color: AppColors.black, fontSize: 16, fontWeight: FontWeight.bold),
+                                    style: const TextStyle(
+                                        color: AppColors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
                                     text: drone.value.modelo,
                                   ),
                                 ),
                           SizedBox(height: isDronePage ? 0 : 8),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsets.only(left: isDronePage ? 90 : 46),
+                              padding:
+                                  EdgeInsets.only(left: isDronePage ? 90 : 46),
                               child: Row(
                                 children: [
                                   Expanded(
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
                                       children: [
                                         RichText(
                                           text: TextSpan(
-                                            style: const TextStyle(color: AppColors.black),
+                                            style: const TextStyle(
+                                                color: AppColors.black),
                                             text: 'Autonomia: ',
                                             children: <TextSpan>[
                                               TextSpan(
-                                                text: '${drone.value.autonomia} minutos',
-                                                style: const TextStyle(fontWeight: FontWeight.w700),
+                                                text:
+                                                    '${drone.value.autonomia} minutos',
+                                                style: const TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.w700),
                                               ),
                                             ],
                                           ),
                                         ),
                                         RichText(
                                           text: TextSpan(
-                                            style: const TextStyle(color: AppColors.black),
+                                            style: const TextStyle(
+                                                color: AppColors.black),
                                             text: 'Carga máxima: ',
                                             children: <TextSpan>[
                                               TextSpan(
-                                                text: '${drone.value.cargaMaxima} kg',
-                                                style: const TextStyle(fontWeight: FontWeight.w700),
+                                                text:
+                                                    '${drone.value.cargaMaxima} kg',
+                                                style: const TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.w700),
                                               ),
                                             ],
                                           ),
                                         ),
                                         RichText(
                                           text: TextSpan(
-                                            style: const TextStyle(color: AppColors.black),
+                                            style: const TextStyle(
+                                                color: AppColors.black),
                                             text: 'Velocidade máxima: ',
                                             children: <TextSpan>[
                                               TextSpan(
-                                                text: ' ${drone.value.velMaxima} km/h',
-                                                style: const TextStyle(fontWeight: FontWeight.w700),
+                                                text:
+                                                    ' ${drone.value.velMaxima} km/h',
+                                                style: const TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.w700),
                                               ),
                                             ],
                                           ),
@@ -123,8 +145,11 @@ Widget droneCard(Rx<Drone> drone, {bool isDronePage = false}) {
                       width: isDronePage ? 120 : 80,
                       height: isDronePage ? 120 : 80,
                       decoration: BoxDecoration(
-                        image: DecorationImage(fit: BoxFit.cover, image: AssetImage(drone.value.image)),
-                        borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(drone.value.image)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(20.0)),
                         border: Border.all(color: AppColors.whiteSmoke),
                       ),
                     ),
@@ -138,7 +163,8 @@ Widget droneCard(Rx<Drone> drone, {bool isDronePage = false}) {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: isDronePage ? 28 : 8, right: 24),
+                        padding: EdgeInsets.only(
+                            top: isDronePage ? 28 : 8, right: 24),
                         child: const Icon(
                           Icons.radar,
                           color: AppColors.mainColor,
