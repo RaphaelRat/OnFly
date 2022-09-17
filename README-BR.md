@@ -61,7 +61,7 @@ Retornando na página do drone, ainda é possivel clicar em seu card para exibir
  
 > <img src="https://user-images.githubusercontent.com/89277770/179399053-906b8ac4-1ce4-47e2-b339-71dc07d2330a.png" alt="Drone" width="250"/>
  
-E no card persebe-se o icone do radar, se está presente ou não, indicando se está em uso ou não.
+E no card percebe-se o icone do radar, se está presente ou não, indicando se está em uso ou não.
 
  >  <img src="https://user-images.githubusercontent.com/89277770/179374659-0ed5b422-0c24-4dcd-a007-d190f37f2395.png" alt="Drone" width="250"/>  <img src="https://user-images.githubusercontent.com/89277770/179399127-f53be2b5-6560-47b1-a291-f0891a06950e.png" alt="Drone" width="250"/>
  >
